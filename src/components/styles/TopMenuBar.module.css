@@ -1,0 +1,11 @@
+.top-menu-container {
+  width: 100%;
+  border: 1rem;
+  border-bottom: 1rem solid #EE0000;
+  display: flex;
+  justify-content: center;
+  height: 6vh;
+}
+.top-menu-title {
+  font-size: 3.2rem;
+}
