@@ -1,0 +1,9 @@
+.discover-hidden-friend-container--text-area {
+  resize: none;
+  width: 100%;
+  margin: 4rem 0;
+  display: block;
+  border: 0.5rem solid #EE0000;
+  border-radius: 1rem;
+  padding: 2rem;
+}

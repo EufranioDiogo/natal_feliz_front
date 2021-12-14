@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from './styles/DiscoverHiddenFriend.module.css'
 
 function DiscoverHiddenFriend() {
+  const navigate = useNavigate()
   const questionMarkImg = 'bx_bx-question-mark.svg'
   const giftImg = 'fluent_gift-20-regular.svg'
   const smileEmojiImage = 'healthicons_happy-outline.svg'
@@ -57,7 +58,9 @@ function DiscoverHiddenFriend() {
             <Link to="1234" className={`red-color ${styles['hidden-friend-text']}`}>Eufránio Diogo</Link>
           </span>
 
-          <button className={`default-button ${styles['full-button-width']}`}>
+          <button
+            className={`default-button ${styles['full-button-width']}`}
+          >
             Ocultar
           </button>
         </>
