@@ -48,7 +48,7 @@ html {
 
 .default-button {
   padding: 2rem 4rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   text-decoration: none;
   color: #fff;
   background-color: #EE0000;
@@ -77,4 +77,8 @@ html {
   align-items: center;
   position: relative;
   margin: 0 auto;
+}
+
+.menu-portal {
+  
 }

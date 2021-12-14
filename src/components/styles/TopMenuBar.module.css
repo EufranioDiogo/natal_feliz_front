@@ -5,7 +5,27 @@
   display: flex;
   justify-content: center;
   height: 6vh;
+  align-items: center;
+  position: relative;
 }
+
 .top-menu-title {
   font-size: 3.2rem;
+}
+
+.hamburguer-menu-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #EE0000;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  right: 2.5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hamburguer-menu-container:hover {
+  background-color: #a30000;
+  cursor: pointer;
 }
