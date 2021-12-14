@@ -26,7 +26,7 @@ function LoginPage() {
             className={`default-button ${styles['align-right']}`}
             onClick={(e) => {
               e.preventDefault()
-              navigate('/friend/hidden')
+              navigate('/app/friend/hidden')
             }}
           >
             Login
