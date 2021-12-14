@@ -50,7 +50,7 @@ function MenuContainer({ switchMenu }) {
             </li>
 
             <li className={styles['menu-list-item']}>
-              <Link to="/app/auth/signout" className={`${styles['menu-list-item--link']} ${location.pathname === '/app/auth/signout' ? ` ${styles['menu-item-active']}` : ''}`}>
+              <Link to="/auth/login" className={`${styles['menu-list-item--link']} ${location.pathname === '/app/auth/login' ? ` ${styles['menu-item-active']}` : ''}`}>
                 Terminar sessão
               </Link>
             </li>
