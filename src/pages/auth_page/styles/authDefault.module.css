@@ -1,0 +1,28 @@
+.form-container {
+  margin: 10rem 0;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+.input-field {
+  padding: 1rem 2rem;
+  outline: none;
+  display: block;
+  width: 100%;
+  margin: 3rem 0;
+  border: 0.5rem solid #EE0000;
+  border-radius: 0.5rem;
+  font-size: 2.4rem;
+}
+.align-right {
+  align-self: flex-end;
+}
+.main-auth {
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 5rem auto;
+}

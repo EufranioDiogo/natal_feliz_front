@@ -1,6 +1,8 @@
+* {
+  box-sizing: border-box;
+}
 html {
   font-size: 62.5%;
-  box-sizing: border-box;
 }
 
 .App {
@@ -45,7 +47,7 @@ html {
 
 
 .default-button {
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
   border-radius: 0.5rem;
   text-decoration: none;
   color: #fff;
@@ -53,16 +55,26 @@ html {
   display: inline-block;
   font-weight: 900;
   font-size: 2.4rem;
+  border: none;
+  cursor: pointer;
 }
 
 .default-button:hover {
   background-color: #a30000;
 }
 
-.main-container {
-  margin: 0 auto;
-}
-
 .red-color {
   color: #EE0000;
+  font-size: 2.4rem;
+}
+
+.main-container {
+  width: 90vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
 }

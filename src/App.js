@@ -3,6 +3,9 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import React from 'react';
 import StarterPage from './pages/starter_page/StarterPage';
+import SignupPage from './pages/auth_page/signup/SignupPage';
+import LoginPage from './pages/auth_page/login/LoginPage';
+import HiddenFriendPage from './pages/normal_app_page/hidden_friend/HiddenFriendPage';
 
 function App() {
   const isLogged = false;
@@ -11,7 +14,21 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<StarterPage></StarterPage>} />
+          <Route path="auth">
+            <Route path="signup" element={<SignupPage></SignupPage>} />
+            <Route path="login" element={<LoginPage></LoginPage>} />
+          </Route>
+          <Route path="app">
+            <Route path="home" element={<LoginPage></LoginPage>} />
+
+            <Route path="friend">
+              <Route path="hidden" element={<HiddenFriendPage></HiddenFriendPage>} />
+            </Route>
+
+            <Route path="profile" element={<LoginPage></LoginPage>} />
+          </Route>
         </Route>
+
       </Routes>
     </BrowserRouter>
 
