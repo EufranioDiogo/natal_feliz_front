@@ -1,0 +1,29 @@
+.main-container {
+  margin: 5rem 0;
+  width: 100%;
+}
+.user-info-container {
+  display: flex;
+  flex-direction: column;
+}
+.user-info-container--h3 {
+  font-size: 3.2rem;
+  margin: 0;
+}
+.user-info-container--h4 {
+  font-size: 1.8rem;
+  margin: 0;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+.discover-hidden-friend-container--text-area {
+  resize: none;
+  width: 100%;
+  margin: 4rem 0;
+  display: block;
+  border: 0.5rem solid #EE0000;
+  border-radius: 1rem;
+  padding: 2rem;
+  outline: none;
+  font-size: 1.8rem;
+}

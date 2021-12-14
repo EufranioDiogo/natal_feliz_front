@@ -6,4 +6,6 @@
   border: 0.5rem solid #EE0000;
   border-radius: 1rem;
   padding: 2rem;
+  outline: none;
+  font-size: 1.8rem;
 }
