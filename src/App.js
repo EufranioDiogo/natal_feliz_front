@@ -7,6 +7,7 @@ import SignupPage from './pages/auth_page/signup/SignupPage';
 import LoginPage from './pages/auth_page/login/LoginPage';
 import HiddenFriendPage from './pages/normal_app_page/hidden_friend/HiddenFriendPage';
 import HiddenFriendDesires from './pages/normal_app_page/hidden_friend/pages/HiddenFriendDesires';
+import HomePage from './pages/normal_app_page/home/HomePage';
 
 function App() {
   const isLogged = false;
@@ -20,7 +21,7 @@ function App() {
             <Route path="login" element={<LoginPage></LoginPage>} />
           </Route>
           <Route path="app">
-            <Route path="home" element={<LoginPage></LoginPage>} />
+            <Route path="home" element={<HomePage></HomePage>} />
 
             <Route path="friend">
               <Route path="hidden">

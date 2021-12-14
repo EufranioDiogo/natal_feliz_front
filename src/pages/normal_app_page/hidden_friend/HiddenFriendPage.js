@@ -18,7 +18,6 @@ function HiddenFriendPage() {
 
         <DiscoverHiddenFriend></DiscoverHiddenFriend>
       </div>
-
     </div>
   )
 }
