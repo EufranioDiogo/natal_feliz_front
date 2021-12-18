@@ -10,6 +10,7 @@ import HiddenFriendDesires from './pages/normal_app_page/hidden_friend/pages/Hid
 import HomePage from './pages/normal_app_page/home/HomePage';
 import ProfilePage from './pages/normal_app_page/profile/ProfilePage';
 import InitialNavigation from './navigation/InitialNavigation';
+import AppNavigation from './navigation/AppNavigation';
 
 function App() {
   const isLogged = false;
@@ -19,27 +20,8 @@ function App() {
         !isLogged ?
           <InitialNavigation />
           :
-          <Routes>
-            <Route path="/">
-              <Route path="app">
-                <Route path="home" element={<HomePage></HomePage>} />
-
-                <Route path="friend">
-                  <Route path="hidden">
-                    <Route index element={<HiddenFriendPage></HiddenFriendPage>} />
-                    <Route path=":userid" element={<HiddenFriendDesires></HiddenFriendDesires>} />
-
-                  </Route>
-                </Route>
-
-                <Route path="profile" element={<ProfilePage />} />
-              </Route>
-            </Route>
-
-          </Routes>
+          <AppNavigation />
       }
-
-
     </BrowserRouter>
 
 
