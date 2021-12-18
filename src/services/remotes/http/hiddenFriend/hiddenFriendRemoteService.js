@@ -2,14 +2,12 @@ import { API_CONSTANTS } from "../../../../utils/constants/apiConstants";
 import { httpRequester } from "../httpRequester";
 
 export const getHiddenFriendRemoteService = async (token) => {
-  const data = {
-    token
-  }
-
   const response = await httpRequester(
     API_CONSTANTS.hiddenFriend.getHiddenFriend,
-    data,
-    {},
+    undefined,
+    {
+      'Authorization': token
+    },
     'GET'
   )
 
@@ -17,14 +15,12 @@ export const getHiddenFriendRemoteService = async (token) => {
 }
 
 export const getHiddenFriendDesiresRemoteService = async (token) => {
-  const data = {
-    token
-  }
-
   const response = await httpRequester(
     API_CONSTANTS.hiddenFriend.getHiddenFriendDesires,
-    data,
-    {},
+    undefined,
+    {
+      'Authorization': token
+    },
     'GET'
   )
 

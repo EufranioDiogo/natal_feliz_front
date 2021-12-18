@@ -19,14 +19,12 @@ export const loginRemoteService = async (username, password) => {
 
 
 export const isAuthenticatedRemoteService = async (token) => {
-  const data = {
-    token
-  }
-
   const response = await httpRequester(
     API_CONSTANTS.auth.auth,
-    data,
-    {},
+    undefined,
+    {
+      'Authorization': token
+    },
     'GET'
   )
 
@@ -34,14 +32,12 @@ export const isAuthenticatedRemoteService = async (token) => {
 }
 
 export const logoutRemoteService = async (token) => {
-  const data = {
-    token
-  }
-
   const response = await httpRequester(
     API_CONSTANTS.auth.logout,
-    data,
-    {},
+    undefined,
+    {
+      'Authorization': token
+    },
     'GET'
   )
 

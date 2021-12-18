@@ -1,17 +1,19 @@
+const API_BASE_URL = 'http://localhost:3000'
+
 export const API_CONSTANTS = {
   auth: {
-    auth: '/auth',
-    login: '/auth/login',
-    logout: '/auth/logout'
+    auth: API_BASE_URL + '/auth',
+    login: API_BASE_URL + '/auth/login',
+    logout: API_BASE_URL + '/auth/logout'
   },
   user: {
-    getData: '/user',
-    createUser: '/user',
-    updateUser: '/user'
+    getData: API_BASE_URL + '/user',
+    createUser: API_BASE_URL + '/user',
+    updateUser: API_BASE_URL + '/user'
   },
   hiddenFriend: {
-    getHiddenFriend: '/friend/hidden',
-    getHiddenFriendDesires: '/friend/hidden/desires'
+    getHiddenFriend: API_BASE_URL + '/friend/hidden',
+    getHiddenFriendDesires: API_BASE_URL + '/friend/hidden/desires'
   },
   app: {
 

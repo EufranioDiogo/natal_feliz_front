@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { createPortal } from 'react-dom'
 import { Link, useLocation } from 'react-router-dom'
+import { AuthContext } from '../../controller/AuthController'
 import styles from './styles/MenuContainer.module.css'
 
 function MenuContainer({ switchMenu }) {
   const closeIconImg = 'la_times.svg'
   const location = useLocation()
-  console.log(location)
+  const { logout } = useContext(AuthContext)
 
   return createPortal((
     <div className={styles['menu-back-container']}>
@@ -32,7 +33,7 @@ function MenuContainer({ switchMenu }) {
         <div className={styles['bottom-menu-container']}>
           <ul className={styles['menu-list']}>
             <li className={styles['menu-list-item']}>
-              <Link to="/app/home" className={`${styles['menu-list-item--link']} ${location.pathname === '/app/home' ? ` ${styles['menu-item-active']}` : ''}`}>
+              <Link to="/app" className={`${styles['menu-list-item--link']} ${location.pathname === '/app' ? ` ${styles['menu-item-active']}` : ''}`}>
                 Home
               </Link>
             </li>

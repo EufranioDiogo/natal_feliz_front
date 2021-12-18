@@ -5,7 +5,6 @@ import SignupPage from '../pages/auth_page/signup/SignupPage'
 import StarterPage from '../pages/starter_page/StarterPage'
 
 function InitialNavigation() {
-  console.log('Entrou')
   return (
     <Routes>
       <Route path="/">

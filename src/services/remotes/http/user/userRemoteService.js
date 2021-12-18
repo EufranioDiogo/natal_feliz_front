@@ -18,29 +18,25 @@ export const createUserRemoteService = async (username, password) => {
 }
 
 export const getUserDataRemoteService = async (token) => {
-  const data = {
-    token
-  }
-
   const response = await httpRequester(
     API_CONSTANTS.user.getData,
-    data,
-    {},
+    undefined,
+    {
+      'Authorization': token
+    },
     'GET'
   )
 
   return response
 }
 
-export const updateUserRemoteService = async (auxData) => {
-  const data = {
-    ...auxData
-  }
-
+export const updateUserRemoteService = async (auxData, token) => {
   const response = await httpRequester(
     API_CONSTANTS.user.updateUser,
-    data,
-    {},
+    undefined,
+    {
+      'Authorization': token
+    },
     'GET'
   )
 

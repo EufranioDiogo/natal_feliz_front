@@ -9,14 +9,14 @@ function AppNavigation() {
   return (
     <Routes>
       <Route path="/app">
-          <Route index element={<HomePage></HomePage>} />
-          <Route path="friend">
-            <Route path="hidden">
-              <Route index element={<HiddenFriendPage></HiddenFriendPage>} />
-              <Route path=":userid" element={<HiddenFriendDesires></HiddenFriendDesires>} />
-            </Route>
-          <Route path="profile" element={<ProfilePage />} />
+        <Route index element={<HomePage></HomePage>} />
+        <Route path="friend">
+          <Route path="hidden">
+            <Route index element={<HiddenFriendPage></HiddenFriendPage>} />
+            <Route path=":userid" element={<HiddenFriendDesires></HiddenFriendDesires>} />
+          </Route>
         </Route>
+        <Route path="profile" element={<ProfilePage />} />
       </Route>
 
     </Routes>

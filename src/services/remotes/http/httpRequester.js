@@ -1,18 +1,40 @@
 export const httpRequester = async (
-  url = '', 
+  url = '',
   data = {},
-  headers = {}, 
+  headers = {
+
+  },
   method = 'GET',
   contentType = 'application/json'
 ) => {
-  const response = await fetch(url, {
-    method,
-    headers: {
-      ...headers,
-      'Content-Type': contentType
-    },
-    body: JSON.stringify(data)
-  })
+  let response;
+  if (method === 'GET' || method === 'HEAD') {
+    response = await fetch(url, {
+      method,
+      headers: {
+        ...headers,
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Allow-Headers': '*',
+        'Content-Type': contentType
+      },
+      mode: 'cors'
+    })
+  } else {
+    response = await fetch(url, {
+      method,
+      headers: {
+        ...headers,
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Allow-Headers': '*',
+        'Content-Type': contentType
+      },
+      body: JSON.stringify(data),
+      mode: 'cors'
+    })
+  }
+  
 
-  return response
+  return await response.json()
 }
