@@ -1,18 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './styles/DiscoverHiddenFriend.module.css'
 
-function DiscoverHiddenFriend() {
+function DiscoverHiddenFriend({ discoverHiddenFriend }) {
   const navigate = useNavigate()
   const questionMarkImg = 'bx_bx-question-mark.svg'
   const giftImg = 'fluent_gift-20-regular.svg'
   const smileEmojiImage = 'healthicons_happy-outline.svg'
+  const [hiddenFriendRequestProcess, setHiddenFriendRequestProcess] = useState('discover')
+  const [hiddenFriend, setHiddenFriend] = useState({
+    _id: '',
+    username: '',
+    desires: ''
+  })
+  const [hideHiddenFriend, setHideHiddenFriend] = useState(false)
 
-  const taskName = 'discovered'
+  const handleDiscoverHiddenFriend = async () => {
+    setHiddenFriendRequestProcess('processing')
+    const token = localStorage.getItem('natal_feliz_token')
+    const response = await discoverHiddenFriend(token)
+
+    setHiddenFriend(response.data.hiddenFriend)
+    setHiddenFriendRequestProcess('discovered')
+  }
+
   return (
     <div className={styles['discover-hidden-friend-container']}>
       {
-        taskName === 'discover' &&
+        hiddenFriendRequestProcess === 'discover' &&
         <>
           <span className={styles['discover-hidden-friend-container--text']}>
             Você ainda não possui o seu amigo oculto!
@@ -22,14 +37,17 @@ function DiscoverHiddenFriend() {
             alt="christmas tree"
             className={styles['discover-hidden-friend-container--img']} />
 
-          <button className={`default-button ${styles['full-button-width']}`}>
+          <button
+            className={`default-button ${styles['full-button-width']}`}
+            onClick={handleDiscoverHiddenFriend}
+          >
             Descobrir amigo oculto
           </button>
         </>
       }
 
       {
-        taskName === 'processing' &&
+        hiddenFriendRequestProcess === 'processing' &&
         <>
 
           <img
@@ -45,7 +63,7 @@ function DiscoverHiddenFriend() {
 
 
       {
-        taskName === 'discovered' &&
+        hiddenFriendRequestProcess === 'discovered' &&
         <>
           <img
             src={`${process.env.PUBLIC_URL}/${smileEmojiImage}`}
@@ -55,13 +73,35 @@ function DiscoverHiddenFriend() {
           <span className={styles['discover-hidden-friend-container--text']}>
             O seu amigo oculto é:
 
-            <Link to="1234" className={`red-color ${styles['hidden-friend-text']}`}>Eufránio Diogo</Link>
+
+
+            {
+              !hideHiddenFriend &&
+              <Link
+                to={hiddenFriend._id}
+                className={`red-color ${styles['hidden-friend-text']}`}
+                onClick={() => {
+                  navigate(`${hiddenFriend._id}`, {
+                    state: {
+                      hiddenFriend
+                    }
+                  })
+                }}
+                state={
+                  hiddenFriend
+                }
+              >{hiddenFriend.username}</Link>
+            }
+
           </span>
 
           <button
             className={`default-button ${styles['full-button-width']}`}
+            onClick={() => {
+              setHideHiddenFriend(!hideHiddenFriend)
+            }}
           >
-            Ocultar
+            {!hideHiddenFriend ? 'Ocultar' : 'Apresentar'}
           </button>
         </>
       }

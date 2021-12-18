@@ -9,6 +9,9 @@ function MenuContainer({ switchMenu }) {
   const location = useLocation()
   const { logout } = useContext(AuthContext)
 
+  const handleLogout = async () => {
+    await logout()
+  }
   return createPortal((
     <div className={styles['menu-back-container']}>
       <div className={styles['menu-container']}>
@@ -51,7 +54,13 @@ function MenuContainer({ switchMenu }) {
             </li>
 
             <li className={styles['menu-list-item']}>
-              <Link to="/auth/login" className={`${styles['menu-list-item--link']} ${location.pathname === '/app/auth/login' ? ` ${styles['menu-item-active']}` : ''}`}>
+              <Link 
+              to="/auth/login" 
+              className={`${styles['menu-list-item--link']} ${location.pathname === '/app/auth/login' ? ` ${styles['menu-item-active']}` : ''}`}
+              onClick={() => {
+                handleLogout()
+              }}
+              >
                 Terminar sessão
               </Link>
             </li>
