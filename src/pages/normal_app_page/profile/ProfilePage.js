@@ -10,11 +10,10 @@ import { useFormik } from 'formik'
 
 
 function ProfilePage() {
-  const navigate = useNavigate()
   const { user } = useContext(AuthContext)
   const formik = useFormik({
     initialValues: {
-      desires: user.desires
+      desires: user?.desires
     },
     onSubmit: async (values) => {
       const token = localStorage.getItem('natal_feliz_token')
@@ -25,6 +24,7 @@ function ProfilePage() {
       }, token)
 
       console.log(response)
+
     }
   })
 
