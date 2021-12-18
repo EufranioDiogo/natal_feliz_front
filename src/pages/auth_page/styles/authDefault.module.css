@@ -2,7 +2,7 @@
   margin: 10rem 0;
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
 }
 .input-container {
   display: flex;

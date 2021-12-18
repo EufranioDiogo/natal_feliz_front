@@ -19,6 +19,8 @@ function AppNavigation() {
         <Route path="profile" element={<ProfilePage />} />
       </Route>
 
+      <Route path="*" element={<HomePage></HomePage>}></Route>
+
     </Routes>
   )
 }

@@ -17,6 +17,10 @@ function LoginPage() {
     },
     onSubmit: async (values) => {
       const response = await login(values.username, values.password)
+
+      if (response.result) {
+        window.location.replace('/app')
+      }
     }
   })
 
