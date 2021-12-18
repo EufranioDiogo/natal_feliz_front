@@ -9,34 +9,37 @@ import HiddenFriendPage from './pages/normal_app_page/hidden_friend/HiddenFriend
 import HiddenFriendDesires from './pages/normal_app_page/hidden_friend/pages/HiddenFriendDesires';
 import HomePage from './pages/normal_app_page/home/HomePage';
 import ProfilePage from './pages/normal_app_page/profile/ProfilePage';
+import InitialNavigation from './navigation/InitialNavigation';
 
 function App() {
   const isLogged = false;
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/">
-          <Route index element={<StarterPage></StarterPage>} />
-          <Route path="auth">
-            <Route path="signup" element={<SignupPage></SignupPage>} />
-            <Route path="login" element={<LoginPage></LoginPage>} />
-          </Route>
-          <Route path="app">
-            <Route path="home" element={<HomePage></HomePage>} />
+      {
+        !isLogged ?
+          <InitialNavigation />
+          :
+          <Routes>
+            <Route path="/">
+              <Route path="app">
+                <Route path="home" element={<HomePage></HomePage>} />
 
-            <Route path="friend">
-              <Route path="hidden">
-                <Route index element={<HiddenFriendPage></HiddenFriendPage>} />
-                <Route path=":userid" element={<HiddenFriendDesires></HiddenFriendDesires>} />
+                <Route path="friend">
+                  <Route path="hidden">
+                    <Route index element={<HiddenFriendPage></HiddenFriendPage>} />
+                    <Route path=":userid" element={<HiddenFriendDesires></HiddenFriendDesires>} />
 
+                  </Route>
+                </Route>
+
+                <Route path="profile" element={<ProfilePage />} />
               </Route>
             </Route>
 
-            <Route path="profile" element={<ProfilePage />} />
-          </Route>
-        </Route>
+          </Routes>
+      }
 
-      </Routes>
+
     </BrowserRouter>
 
 

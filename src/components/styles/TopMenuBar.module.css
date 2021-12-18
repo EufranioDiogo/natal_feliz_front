@@ -7,6 +7,8 @@
   height: 6vh;
   align-items: center;
   position: relative;
+  z-index: 1;
+  background-color: #fff;
 }
 
 .top-menu-title {
