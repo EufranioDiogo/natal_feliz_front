@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../controller/AuthController'
 import MenuContainer from './menuComponent/MenuContainer'
 import styles from './styles/TopMenuBar.module.css'
 
 function TopMenuBar() {
   const hamburguerIconImg = 'dashicons_menu.svg'
   const [openMenu, setOpenMenu] = useState(false)
-
+  const { isLogged } = useContext(AuthContext)
   const switchMenu = () => {
     setOpenMenu(!openMenu)
   }
@@ -16,19 +17,24 @@ function TopMenuBar() {
         Natal Feliz
       </h1>
 
-      <div
-        className={styles['hamburguer-menu-container']}
-        onClick={switchMenu}
-      >
-        <img
-          src={`${process.env.PUBLIC_URL}/${hamburguerIconImg}`}
-          alt="christmas tree"
-          className={styles['hamburguer-menu-container--img']} />
-      </div>
+
+      {
+        isLogged &&
+        <div
+          className={styles['hamburguer-menu-container']}
+          onClick={switchMenu}
+        >
+          <img
+            src={`${process.env.PUBLIC_URL}/${hamburguerIconImg}`}
+            alt="christmas tree"
+            className={styles['hamburguer-menu-container--img']} />
+        </div>
+      }
+
 
       {
         openMenu &&
-        <MenuContainer switchMenu={switchMenu}/>
+        <MenuContainer switchMenu={switchMenu} />
       }
     </div>
   )

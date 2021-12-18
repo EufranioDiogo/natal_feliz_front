@@ -7,7 +7,8 @@ import styles from './styles/MenuContainer.module.css'
 function MenuContainer({ switchMenu }) {
   const closeIconImg = 'la_times.svg'
   const location = useLocation()
-  const { logout, isLogged } = useContext(AuthContext)
+  const { logout } = useContext(AuthContext)
+  const { isLogged } = useContext(AuthContext)
 
 
   const handleLogout = async () => {
@@ -21,21 +22,18 @@ function MenuContainer({ switchMenu }) {
             Natal Feliz
           </h1>
 
-          {
-            isLogged &&
-            <div
-              className={styles['hamburguer-menu-container']}
-              onClick={() => {
-                switchMenu()
-              }}
-            >
-              <img
-                src={`${process.env.PUBLIC_URL}/${closeIconImg}`}
-                alt="christmas tree"
-                className={styles['hamburguer-menu-container--img']} />
-            </div>
-          }
 
+          <div
+            className={styles['hamburguer-menu-container']}
+            onClick={() => {
+              switchMenu()
+            }}
+          >
+            <img
+              src={`${process.env.PUBLIC_URL}/${closeIconImg}`}
+              alt="christmas tree"
+              className={styles['hamburguer-menu-container--img']} />
+          </div>
         </div>
 
         <div className={styles['bottom-menu-container']}>
@@ -59,12 +57,12 @@ function MenuContainer({ switchMenu }) {
             </li>
 
             <li className={styles['menu-list-item']}>
-              <Link
-                to="/auth/login"
-                className={`${styles['menu-list-item--link']} ${location.pathname === '/app/auth/login' ? ` ${styles['menu-item-active']}` : ''}`}
-                onClick={() => {
-                  handleLogout()
-                }}
+              <Link 
+              to="/auth/login" 
+              className={`${styles['menu-list-item--link']} ${location.pathname === '/app/auth/login' ? ` ${styles['menu-item-active']}` : ''}`}
+              onClick={() => {
+                handleLogout()
+              }}
               >
                 Terminar sessão
               </Link>
