@@ -1,15 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TopMenuBar from '../../../components/TopMenuBar'
 import { Link, useNavigate } from 'react-router-dom'
 import PageIndicator from '../../../components/PageIndicator'
 import styles from '../styles/normalDefault.module.css'
 import styles1 from './styles/HomePage.module.css'
+import { getStatistics } from '../../../services/remotes/http/app/appRemoteService'
 
 
 function HomePage() {
-  const navigate = useNavigate()
   const happyFamilyImg = 'pexels-jonathan-borba-3303614.jpg'
+  const [appStatistics, setAppStatistics] = useState({
+    quantUsersTotal: 0,
+    quantUsersWithoutHiddenFriend: 0
+  })
 
+  const handleGetStatistics = async () => {
+    const token = localStorage.getItem('natal_feliz_token')
+    const response = await getStatistics(token)
+
+    if (response.result) {
+      setAppStatistics(response.data)
+    }
+  }
+
+  useEffect(() => {
+    handleGetStatistics()
+  }, [])
   return (
     <div >
       <TopMenuBar />
@@ -45,7 +61,7 @@ function HomePage() {
               <span
                 className={styles1['statistics-container--item-value']}
               >
-                12
+                {appStatistics.quantUsersTotal}
               </span>
             </div>
 
@@ -62,7 +78,9 @@ function HomePage() {
               <span
                 className={styles1['statistics-container--item-value']}
               >
-                12
+                {
+                  appStatistics.quantUsersWithoutHiddenFriend
+                }
               </span>
             </div>
           </div>

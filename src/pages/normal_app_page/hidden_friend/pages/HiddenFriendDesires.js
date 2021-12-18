@@ -8,7 +8,6 @@ import styles2 from './styles/HiddenFriendDesires.module.css'
 function HiddenFriendDesires(props) {
   const navigate = useNavigate()
   const location = useLocation()
-  console.log(props)
   const hiddenFriend = location.state
 
 

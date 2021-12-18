@@ -9,11 +9,8 @@ import { AuthContext } from '../../../controller/AuthController'
 
 function ProfilePage() {
   const navigate = useNavigate()
-  const happyFamilyImg = 'pexels-jonathan-borba-3303614.jpg'
   const [isSelected, setIsSelected] = useState(true)
   const { user } = useContext(AuthContext)
-
-  console.log(user)
 
   return (
     <div >

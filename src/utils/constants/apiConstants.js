@@ -16,6 +16,6 @@ export const API_CONSTANTS = {
     getHiddenFriendDesires: API_BASE_URL + '/friend/hidden/desires'
   },
   app: {
-
+    statistics: API_BASE_URL + '/app/statistics',
   }
 }
