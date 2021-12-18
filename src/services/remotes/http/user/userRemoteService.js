@@ -33,11 +33,11 @@ export const getUserDataRemoteService = async (token) => {
 export const updateUserRemoteService = async (auxData, token) => {
   const response = await httpRequester(
     API_CONSTANTS.user.updateUser,
-    undefined,
+    auxData,
     {
       'Authorization': token
     },
-    'GET'
+    'PUT'
   )
 
   return response
