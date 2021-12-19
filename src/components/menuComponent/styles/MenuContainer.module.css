@@ -62,10 +62,11 @@
   margin-bottom: 3rem;
 }
 .menu-list-item--link {
-  font-size: 3.2rem;
+  font-size: 1.8rem;
   text-decoration: none;
   font-weight: 800;
   color: #222;
+  font-weight: 400
 }
 .menu-item-active {
   position: relative;

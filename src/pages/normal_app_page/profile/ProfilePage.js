@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import TopMenuBar from '../../../components/TopMenuBar'
 import { Link, useNavigate } from 'react-router-dom'
 import PageIndicator from '../../../components/PageIndicator'
 import styles from '../styles/normalDefault.module.css'
 import styles1 from './styles/ProfilePage.module.css'
 import { AuthContext } from '../../../controller/AuthController'
-import { updateUserRemoteService } from '../../../services/remotes/http/user/userRemoteService'
+import { getUserDataRemoteService, updateUserRemoteService } from '../../../services/remotes/http/user/userRemoteService'
 import { useFormik } from 'formik'
 import Spinner from '../../../components/spinner/Spinner'
 
@@ -14,6 +14,7 @@ function ProfilePage() {
   const { user } = useContext(AuthContext)
   const [processing, setProcessing] = useState(false)
   const [error, setError] = useState(false)
+  const [auxUser, setAuxUser] = useState(undefined)
 
   const formik = useFormik({
     initialValues: {
@@ -24,7 +25,7 @@ function ProfilePage() {
         setProcessing(true)
         const token = localStorage.getItem('natal_feliz_token')
 
-        const response = await updateUserRemoteService({
+        await updateUserRemoteService({
           ...user,
           ...values
         }, token)
@@ -36,24 +37,38 @@ function ProfilePage() {
     }
   })
 
+  const handleGetUserData = async () => {
+    try {
+      const token = localStorage.getItem('natal_feliz_token')
+      const response = await getUserDataRemoteService(token)
+
+      setAuxUser(response.data.userFounded)
+    } catch (error) {
+
+    }
+  }
+
+  useEffect(() => {
+    handleGetUserData()
+  }, [])
+
   return (
     <div >
       <TopMenuBar />
 
       <div className={`main-container ${styles['main-auth']}`}>
         <PageIndicator pagename="Perfil" />
-        z
         <div className={styles1['main-container']}>
           <div className={styles1['user-info-container']}>
             <h3 className={styles1['user-info-container--h3']}>
-              {user.username}
+              {user?.username}
             </h3>
             <h4
               className={`${styles1['user-info-container--h4']} 
-              ${user.hasHiddenFriend ? 'green-color-text' : 'red-color-text'}`}
+              ${user?.hasHiddenFriend ? 'green-color-text' : 'red-color-text'}`}
             >
               {
-                user.hasHiddenFriend ?
+                user?.hasHiddenFriend ?
                   'Alguém já calhou com você!'
                   :
                   'Ainda não tem ninguém que calhou contigo!'

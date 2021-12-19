@@ -21,10 +21,15 @@ function LoginPage() {
     onSubmit: async (values) => {
       try {
         setProcessing(true)
-        const response = await login(values.username.trim(), values.password.trim())
+        const username = ((values.username.trim().split(' ')).filter(element => element.trim().length !== 0).join(' ')).toLowerCase()
+        const password = ((values.password.trim().split(' ')).filter(element => element.trim().length !== 0).join(' ')).toLowerCase()
+
+        const response = await login(username, password)
 
         if (response.result) {
           window.location.replace('/app')
+        } else {
+
         }
         setProcessing(false)
       } catch (error) {
@@ -77,13 +82,13 @@ function LoginPage() {
           >
             {
               !processing ?
-                'Login'
+                !error ? 'Login' : 'Erro, tente mais tarde'
                 :
                 <Spinner color="#fff" size="small"></Spinner>
             }
           </button>
         </form>
-        <Link to="/auth/signup" className={`red-color`}>Cadastrar-se</Link>
+        <Link to="/natal_feliz_front/auth/signup" className={`red-color`}>Cadastrar-se</Link>
       </div>
 
     </div>

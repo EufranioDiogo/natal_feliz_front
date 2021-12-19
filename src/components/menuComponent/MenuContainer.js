@@ -19,7 +19,7 @@ function MenuContainer({ switchMenu }) {
       <div className={styles['menu-container']}>
         <div className={styles['top-menu-container']}>
           <h1 className={styles['top-menu-title']}>
-            Natal Feliz
+            Amigo Oculto
           </h1>
 
 

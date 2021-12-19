@@ -8,7 +8,7 @@ import { getStatistics } from '../../../services/remotes/http/app/appRemoteServi
 
 
 function HomePage() {
-  const happyFamilyImg = 'pexels-jonathan-borba-3303614.jpg'
+  const happyFamilyImg = 'pexels-nicole-michalou-5778892.jpg'
   const [appStatistics, setAppStatistics] = useState({
     quantUsersTotal: 0,
     quantUsersWithoutHiddenFriend: 0

@@ -3,6 +3,10 @@
   flex-direction: column;
   align-items: center;
   margin: 20rem auto;
+  justify-self: self-start;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .heading-1 {

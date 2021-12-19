@@ -21,7 +21,10 @@ function SignupPage() {
     onSubmit: async (values) => {
       try {
         setProcessing(true)
-        const response = await signup(values.username.trim(), values.password.trim())
+        const username = ((values.username.trim().split(' ')).filter(element => element.trim().length !== 0).join(' ')).toLowerCase()
+        const password = ((values.password.trim().split(' ')).filter(element => element.trim().length !== 0).join(' ')).toLowerCase()
+
+        const response = await signup(username, password)
         if (response.result) {
           window.location.replace('/app')
         }
