@@ -21,7 +21,7 @@ function LoginPage() {
     onSubmit: async (values) => {
       try {
         setProcessing(true)
-        const response = await login(values.username, values.password)
+        const response = await login(values.username.trim(), values.password.trim())
 
         if (response.result) {
           window.location.replace('/app')
