@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Spinner from '../../../../components/spinner/Spinner'
 import styles from './styles/DiscoverHiddenFriend.module.css'
 
 function DiscoverHiddenFriend({ discoverHiddenFriend }) {
@@ -58,6 +59,9 @@ function DiscoverHiddenFriend({ discoverHiddenFriend }) {
           <span className={styles['discover-hidden-friend-container--text']}>
             Processando o seu amigo ...
           </span>
+          {
+            <Spinner color="#333" size="big" />
+          }
         </>
       }
 
