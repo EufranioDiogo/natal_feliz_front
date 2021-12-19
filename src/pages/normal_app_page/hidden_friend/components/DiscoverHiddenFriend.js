@@ -1,115 +1,41 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import Spinner from '../../../../components/spinner/Spinner'
-import styles from './styles/DiscoverHiddenFriend.module.css'
+import React, { useEffect, useState } from 'react'
+import UserIntectactionPart from './UserIntectactionPart'
+import WaitingPanel from './WaitingPanel'
 
 function DiscoverHiddenFriend({ discoverHiddenFriend }) {
-  const navigate = useNavigate()
-  const questionMarkImg = 'bx_bx-question-mark.svg'
-  const giftImg = 'fluent_gift-20-regular.svg'
-  const smileEmojiImage = 'healthicons_happy-outline.svg'
-  const [hiddenFriendRequestProcess, setHiddenFriendRequestProcess] = useState('discover')
-  const [hiddenFriend, setHiddenFriend] = useState({
-    _id: '',
-    username: '',
-    desires: ''
-  })
-  const [hideHiddenFriend, setHideHiddenFriend] = useState(false)
+  const dueDate = new Date('2021-12-20T08:00:00').getTime()
+  const [actualTime, setActualTime] = useState(new Date().getTime())
 
-  const handleDiscoverHiddenFriend = async () => {
-    setHiddenFriendRequestProcess('processing')
-    const token = localStorage.getItem('natal_feliz_token')
-    const response = await discoverHiddenFriend(token)
+  const perfomComputation = () => {
+    const timeleft = dueDate - actualTime;
 
-    setHiddenFriend(response.data.hiddenFriend)
-    setHiddenFriendRequestProcess('discovered')
+    const days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+    return {
+      days,
+      hours,
+      minutes,
+      seconds
+    }
   }
-
+  useEffect(() => {
+    setInterval(() => {
+      setActualTime(new Date().getTime())
+      perfomComputation()
+    }, 1000)
+  })
   return (
-    <div className={styles['discover-hidden-friend-container']}>
+    <>
       {
-        hiddenFriendRequestProcess === 'discover' &&
-        <>
-          <span className={styles['discover-hidden-friend-container--text']}>
-            Você ainda não possui o seu amigo oculto!
-          </span>
-          <img
-            src={`${process.env.PUBLIC_URL}/${questionMarkImg}`}
-            alt="christmas tree"
-            className={styles['discover-hidden-friend-container--img']} />
-
-          <button
-            className={`default-button ${styles['full-button-width']}`}
-            onClick={handleDiscoverHiddenFriend}
-          >
-            Descobrir amigo oculto
-          </button>
-        </>
+        dueDate - actualTime <= 0 ?
+          <UserIntectactionPart />
+          :
+          <WaitingPanel {...perfomComputation()} />
       }
-
-      {
-        hiddenFriendRequestProcess === 'processing' &&
-        <>
-
-          <img
-            src={`${process.env.PUBLIC_URL}/${giftImg}`}
-            alt="christmas tree"
-            className={styles['discover-hidden-friend-container--img']} />
-
-          <span className={styles['discover-hidden-friend-container--text']}>
-            Processando o seu amigo ...
-          </span>
-          {
-            <Spinner color="#333" size="big" />
-          }
-        </>
-      }
-
-
-      {
-        hiddenFriendRequestProcess === 'discovered' &&
-        <>
-          <img
-            src={`${process.env.PUBLIC_URL}/${smileEmojiImage}`}
-            alt="christmas tree"
-            className={styles['discover-hidden-friend-container--img']} />
-
-          <span className={styles['discover-hidden-friend-container--text']}>
-            O seu amigo oculto é:
-
-
-
-            {
-              !hideHiddenFriend &&
-              <Link
-                to={hiddenFriend._id}
-                className={`red-color ${styles['hidden-friend-text']}`}
-                onClick={() => {
-                  navigate(`${hiddenFriend._id}`, {
-                    state: {
-                      hiddenFriend
-                    }
-                  })
-                }}
-                state={
-                  hiddenFriend
-                }
-              >{hiddenFriend.username}</Link>
-            }
-
-          </span>
-
-          <button
-            className={`default-button ${styles['full-button-width']}`}
-            onClick={() => {
-              setHideHiddenFriend(!hideHiddenFriend)
-            }}
-          >
-            {!hideHiddenFriend ? 'Ocultar' : 'Apresentar'}
-          </button>
-        </>
-      }
-    </div>
+    </>
   )
 }
 

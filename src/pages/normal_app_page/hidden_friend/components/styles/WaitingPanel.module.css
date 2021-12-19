@@ -1,0 +1,17 @@
+.discover-hidden-friend-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20rem auto;
+}
+
+.heading-1 {
+  color: #EE0000;
+  font-size: 3.2rem;
+  text-align: center;
+}
+.heading-2 {
+  color: #000000bb;
+  font-size: 2.4rem;
+  text-align: center;
+}
