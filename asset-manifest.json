@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/natal_feliz_front/static/css/main.92eb5a14.chunk.css",
-    "main.js": "/natal_feliz_front/static/js/main.07463b79.chunk.js",
-    "main.js.map": "/natal_feliz_front/static/js/main.07463b79.chunk.js.map",
+    "main.js": "/natal_feliz_front/static/js/main.f43f4361.chunk.js",
+    "main.js.map": "/natal_feliz_front/static/js/main.f43f4361.chunk.js.map",
     "runtime-main.js": "/natal_feliz_front/static/js/runtime-main.54f49d0a.js",
     "runtime-main.js.map": "/natal_feliz_front/static/js/runtime-main.54f49d0a.js.map",
     "static/js/2.ed0d038a.chunk.js": "/natal_feliz_front/static/js/2.ed0d038a.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.54f49d0a.js",
     "static/js/2.ed0d038a.chunk.js",
     "static/css/main.92eb5a14.chunk.css",
-    "static/js/main.07463b79.chunk.js"
+    "static/js/main.f43f4361.chunk.js"
   ]
 }
