@@ -11,6 +11,7 @@ function LoginPage() {
   const navigate = useNavigate()
   const { login, isLogged } = useContext(AuthContext)
   const [processing, setProcessing] = useState(false)
+  const [error, setError] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -18,13 +19,19 @@ function LoginPage() {
       password: '',
     },
     onSubmit: async (values) => {
-      setProcessing(true)
-      const response = await login(values.username, values.password)
+      try {
+        setProcessing(true)
+        const response = await login(values.username, values.password)
 
-      if (response.result) {
-        window.location.replace('/app')
+        if (response.result) {
+          window.location.replace('/app')
+        }
+        setProcessing(false)
+      } catch (error) {
+        setProcessing(false)
+        setError(true)
       }
-      setProcessing(false)
+
     }
   })
 

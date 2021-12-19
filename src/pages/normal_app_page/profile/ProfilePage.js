@@ -7,24 +7,32 @@ import styles1 from './styles/ProfilePage.module.css'
 import { AuthContext } from '../../../controller/AuthController'
 import { updateUserRemoteService } from '../../../services/remotes/http/user/userRemoteService'
 import { useFormik } from 'formik'
+import Spinner from '../../../components/spinner/Spinner'
 
 
 function ProfilePage() {
   const { user } = useContext(AuthContext)
+  const [processing, setProcessing] = useState(false)
+  const [error, setError] = useState(false)
+
   const formik = useFormik({
     initialValues: {
       desires: user?.desires
     },
     onSubmit: async (values) => {
-      const token = localStorage.getItem('natal_feliz_token')
+      try {
+        setProcessing(true)
+        const token = localStorage.getItem('natal_feliz_token')
 
-      const response = await updateUserRemoteService({
-        ...user,
-        ...values
-      }, token)
-
-      console.log(response)
-
+        const response = await updateUserRemoteService({
+          ...user,
+          ...values
+        }, token)
+        setProcessing(false)
+      } catch (error) {
+        setProcessing(false)
+        setError(true)
+      }
     }
   })
 
@@ -76,7 +84,13 @@ function ProfilePage() {
               className="default-button"
               type="submit"
             >
-              Salvar
+              {
+                !processing ?
+                  !error ? 'Salvar' : 'Erro, tente mais tarde'
+                  :
+                  <Spinner color="#fff" size="small"></Spinner>
+              }
+
             </button>
           </form>
 

@@ -39,13 +39,13 @@ function MenuContainer({ switchMenu }) {
         <div className={styles['bottom-menu-container']}>
           <ul className={styles['menu-list']}>
             <li className={styles['menu-list-item']}>
-              <Link to="/natal_feliz_front/app" className={`${styles['menu-list-item--link']} ${location.pathname === '/app' ? ` ${styles['menu-item-active']}` : ''}`}>
+              <Link to="/natal_feliz_front/app" className={`${styles['menu-list-item--link']} ${location.pathname === '/natal_feliz_front/app' ? ` ${styles['menu-item-active']}` : ''}`}>
                 Home
               </Link>
             </li>
 
             <li className={styles['menu-list-item']}>
-              <Link to="/natal_feliz_front/app/profile" className={`${styles['menu-list-item--link']} ${location.pathname === '/app/profile' ? ` ${styles['menu-item-active']}` : ''}`}>
+              <Link to="/natal_feliz_front/app/profile" className={`${styles['menu-list-item--link']} ${location.pathname === '/natal_feliz_front/app/profile' ? ` ${styles['menu-item-active']}` : ''}`}>
                 Perfil
               </Link>
             </li>
@@ -59,7 +59,7 @@ function MenuContainer({ switchMenu }) {
             <li className={styles['menu-list-item']}>
               <Link 
               to="/natal_feliz_front/auth/login" 
-              className={`${styles['menu-list-item--link']} ${location.pathname === '/natal_feliz_front/app/auth/login' ? ` ${styles['menu-item-active']}` : ''}`}
+              className={`${styles['menu-list-item--link']} ${location.pathname === '/natal_feliz_front/auth/login' ? ` ${styles['menu-item-active']}` : ''}`}
               onClick={() => {
                 handleLogout()
               }}
