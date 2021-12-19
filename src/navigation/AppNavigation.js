@@ -8,7 +8,7 @@ import ProfilePage from '../pages/normal_app_page/profile/ProfilePage'
 function AppNavigation() {
   return (
     <Routes>
-      <Route path="/app">
+      <Route path="/natal_feliz_front/app">
         <Route index element={<HomePage></HomePage>} />
         <Route path="friend">
           <Route path="hidden">

@@ -7,7 +7,7 @@ import StarterPage from '../pages/starter_page/StarterPage'
 function InitialNavigation() {
   return (
     <Routes>
-      <Route path="/">
+      <Route path="/natal_feliz_front">
         <Route index element={<StarterPage></StarterPage>} />
         <Route path="auth">
           <Route path="signup" element={<SignupPage></SignupPage>} />

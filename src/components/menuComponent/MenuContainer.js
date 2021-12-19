@@ -39,27 +39,27 @@ function MenuContainer({ switchMenu }) {
         <div className={styles['bottom-menu-container']}>
           <ul className={styles['menu-list']}>
             <li className={styles['menu-list-item']}>
-              <Link to="/app" className={`${styles['menu-list-item--link']} ${location.pathname === '/app' ? ` ${styles['menu-item-active']}` : ''}`}>
+              <Link to="/natal_feliz_front/app" className={`${styles['menu-list-item--link']} ${location.pathname === '/app' ? ` ${styles['menu-item-active']}` : ''}`}>
                 Home
               </Link>
             </li>
 
             <li className={styles['menu-list-item']}>
-              <Link to="/app/profile" className={`${styles['menu-list-item--link']} ${location.pathname === '/app/profile' ? ` ${styles['menu-item-active']}` : ''}`}>
+              <Link to="/natal_feliz_front/app/profile" className={`${styles['menu-list-item--link']} ${location.pathname === '/app/profile' ? ` ${styles['menu-item-active']}` : ''}`}>
                 Perfil
               </Link>
             </li>
 
             <li className={styles['menu-list-item']}>
-              <Link to="/app/friend/hidden" className={`${styles['menu-list-item--link']} ${location.pathname === '/app/friend/hidden' ? ` ${styles['menu-item-active']}` : ''}`}>
+              <Link to="/natal_feliz_front/app/friend/hidden" className={`${styles['menu-list-item--link']} ${location.pathname === '/natal_feliz_front/app/friend/hidden' ? ` ${styles['menu-item-active']}` : ''}`}>
                 Amigo oculto
               </Link>
             </li>
 
             <li className={styles['menu-list-item']}>
               <Link 
-              to="/auth/login" 
-              className={`${styles['menu-list-item--link']} ${location.pathname === '/app/auth/login' ? ` ${styles['menu-item-active']}` : ''}`}
+              to="/natal_feliz_front/auth/login" 
+              className={`${styles['menu-list-item--link']} ${location.pathname === '/natal_feliz_front/app/auth/login' ? ` ${styles['menu-item-active']}` : ''}`}
               onClick={() => {
                 handleLogout()
               }}

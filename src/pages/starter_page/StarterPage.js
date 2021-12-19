@@ -24,8 +24,8 @@ function StarterPage() {
         </span>
 
         <div className={styles['stater-page-main-container--button-controller']}>
-          <Link to="/auth/signup" className={`default-button`}>Cadastro</Link>
-          <Link to="/auth/login" className={`red-color ${styles['button-controller-aux-button-left']}`}>Login</Link>
+          <Link to="/natal_feliz_front/auth/signup" className={`default-button`}>Cadastro</Link>
+          <Link to="/natal_feliz_front/auth/login" className={`red-color ${styles['button-controller-aux-button-left']}`}>Login</Link>
         </div>
       </div>
     </div>
