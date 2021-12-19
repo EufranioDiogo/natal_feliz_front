@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/natal_feliz_front/static/css/main.1a7512ff.chunk.css",
-    "main.js": "/natal_feliz_front/static/js/main.70f4405a.chunk.js",
-    "main.js.map": "/natal_feliz_front/static/js/main.70f4405a.chunk.js.map",
+    "main.js": "/natal_feliz_front/static/js/main.b269515a.chunk.js",
+    "main.js.map": "/natal_feliz_front/static/js/main.b269515a.chunk.js.map",
     "runtime-main.js": "/natal_feliz_front/static/js/runtime-main.39b48d67.js",
     "runtime-main.js.map": "/natal_feliz_front/static/js/runtime-main.39b48d67.js.map",
-    "static/js/2.61562e12.chunk.js": "/natal_feliz_front/static/js/2.61562e12.chunk.js",
-    "static/js/2.61562e12.chunk.js.map": "/natal_feliz_front/static/js/2.61562e12.chunk.js.map",
+    "static/js/2.112eeec0.chunk.js": "/natal_feliz_front/static/js/2.112eeec0.chunk.js",
+    "static/js/2.112eeec0.chunk.js.map": "/natal_feliz_front/static/js/2.112eeec0.chunk.js.map",
     "static/js/3.c19580d0.chunk.js": "/natal_feliz_front/static/js/3.c19580d0.chunk.js",
     "static/js/3.c19580d0.chunk.js.map": "/natal_feliz_front/static/js/3.c19580d0.chunk.js.map",
     "index.html": "/natal_feliz_front/index.html",
     "static/css/main.1a7512ff.chunk.css.map": "/natal_feliz_front/static/css/main.1a7512ff.chunk.css.map",
-    "static/js/2.61562e12.chunk.js.LICENSE.txt": "/natal_feliz_front/static/js/2.61562e12.chunk.js.LICENSE.txt"
+    "static/js/2.112eeec0.chunk.js.LICENSE.txt": "/natal_feliz_front/static/js/2.112eeec0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.39b48d67.js",
-    "static/js/2.61562e12.chunk.js",
+    "static/js/2.112eeec0.chunk.js",
     "static/css/main.1a7512ff.chunk.css",
-    "static/js/main.70f4405a.chunk.js"
+    "static/js/main.b269515a.chunk.js"
   ]
 }
