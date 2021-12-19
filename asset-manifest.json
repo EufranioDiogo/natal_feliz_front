@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/natal-feliz-front/static/css/main.92eb5a14.chunk.css",
+    "main.js": "/natal-feliz-front/static/js/main.57d47cb0.chunk.js",
+    "main.js.map": "/natal-feliz-front/static/js/main.57d47cb0.chunk.js.map",
+    "runtime-main.js": "/natal-feliz-front/static/js/runtime-main.39137c2e.js",
+    "runtime-main.js.map": "/natal-feliz-front/static/js/runtime-main.39137c2e.js.map",
+    "static/js/2.ed0d038a.chunk.js": "/natal-feliz-front/static/js/2.ed0d038a.chunk.js",
+    "static/js/2.ed0d038a.chunk.js.map": "/natal-feliz-front/static/js/2.ed0d038a.chunk.js.map",
+    "static/js/3.8a2d4083.chunk.js": "/natal-feliz-front/static/js/3.8a2d4083.chunk.js",
+    "static/js/3.8a2d4083.chunk.js.map": "/natal-feliz-front/static/js/3.8a2d4083.chunk.js.map",
+    "index.html": "/natal-feliz-front/index.html",
+    "static/css/main.92eb5a14.chunk.css.map": "/natal-feliz-front/static/css/main.92eb5a14.chunk.css.map",
+    "static/js/2.ed0d038a.chunk.js.LICENSE.txt": "/natal-feliz-front/static/js/2.ed0d038a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.39137c2e.js",
+    "static/js/2.ed0d038a.chunk.js",
+    "static/css/main.92eb5a14.chunk.css",
+    "static/js/main.57d47cb0.chunk.js"
+  ]
+}
