@@ -4,11 +4,11 @@
   border-bottom: 1rem solid #EE0000;
   display: flex;
   justify-content: center;
-  height: 6vh;
   align-items: center;
   position: relative;
   z-index: 1;
   background-color: #fff;
+  padding: 0;
 }
 
 .top-menu-title {
