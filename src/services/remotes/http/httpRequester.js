@@ -18,7 +18,6 @@ export const httpRequester = async (
         'Access-Control-Allow-Headers': '*',
         'Content-Type': contentType
       },
-      mode: 'cors'
     })
   } else {
     response = await fetch(url, {
@@ -30,8 +29,7 @@ export const httpRequester = async (
         'Access-Control-Allow-Headers': '*',
         'Content-Type': contentType
       },
-      body: JSON.stringify(data),
-      mode: 'cors'
+      body: JSON.stringify(data)
     })
   }
   
