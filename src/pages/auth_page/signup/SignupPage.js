@@ -11,6 +11,7 @@ function SignupPage() {
   const { signup } = useContext(AuthContext)
   const [processing, setProcessing] = useState(false)
   const [error, setError] = useState(false)
+  const [userExistsError, setUserExistsError] = useState(false)
 
 
   const formik = useFormik({
@@ -20,13 +21,16 @@ function SignupPage() {
     },
     onSubmit: async (values) => {
       try {
+        setUserExistsError(false)
         setProcessing(true)
         const username = ((values.username.trim().split(' ')).filter(element => element.trim().length !== 0).join(' ')).toLowerCase()
         const password = ((values.password.trim().split(' ')).filter(element => element.trim().length !== 0).join(' ')).toLowerCase()
 
         const response = await signup(username, password)
-        if (response.result) {
+        if (response.status === 200) {
           window.location.replace('/app')
+        } else if (response.status === 500) {
+          setUserExistsError(true)
         }
         setProcessing(false)
       } catch (err) {
@@ -71,6 +75,11 @@ function SignupPage() {
               onChange={formik.handleChange}
             />
           </div>
+
+          {
+            userExistsError &&
+            <h3 className="not-valid-data">Erro, alguém já foi registrado com esses dados</h3>
+          }
 
 
 

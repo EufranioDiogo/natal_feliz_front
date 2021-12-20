@@ -12,6 +12,8 @@ function LoginPage() {
   const { login, isLogged } = useContext(AuthContext)
   const [processing, setProcessing] = useState(false)
   const [error, setError] = useState(false)
+  const [notValidCredentials, setNotValidCredentials] = useState(false)
+
 
   const formik = useFormik({
     initialValues: {
@@ -20,16 +22,17 @@ function LoginPage() {
     },
     onSubmit: async (values) => {
       try {
+        setNotValidCredentials(false)
         setProcessing(true)
         const username = ((values.username.trim().split(' ')).filter(element => element.trim().length !== 0).join(' ')).toLowerCase()
         const password = ((values.password.trim().split(' ')).filter(element => element.trim().length !== 0).join(' ')).toLowerCase()
 
         const response = await login(username, password)
 
-        if (response.result) {
+        if (response.status === 200) {
           window.location.replace('/app')
-        } else {
-
+        } else if (response.status === 403) {
+          setNotValidCredentials(true)
         }
         setProcessing(false)
       } catch (error) {
@@ -74,6 +77,10 @@ function LoginPage() {
               onChange={formik.handleChange}
             />
           </div>
+          {
+            notValidCredentials &&
+            <h3 className="not-valid-data">Erro, dados incorrectos</h3>
+          }
 
           <button
             type="submit"

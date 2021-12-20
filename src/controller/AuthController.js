@@ -46,6 +46,7 @@ function AuthController({ children }) {
     const response = await createUserRemoteService(username, password)
 
     if (response.result) {
+      console.log('Response ', response)
       setUser(response.data.data)
       setIsLogged(true)
       localStorage.setItem('natal_feliz_token', response.data.token)
