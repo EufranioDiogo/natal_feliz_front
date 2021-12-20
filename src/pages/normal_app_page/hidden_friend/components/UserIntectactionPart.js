@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Spinner from '../../../../components/spinner/Spinner'
+import { getHiddenFriendRemoteService } from '../../../../services/remotes/http/hiddenFriend/hiddenFriendRemoteService'
 import styles from './styles/DiscoverHiddenFriend.module.css'
 
 
@@ -22,11 +23,14 @@ function UserIntectactionPart() {
     try {
       setHiddenFriendRequestProcess('processing')
       const token = localStorage.getItem('natal_feliz_token')
-      const response = await discoverHiddenFriend(token)
+      console.log(token)
+      const response = await getHiddenFriendRemoteService(token)
 
+      console.log(response)
       setHiddenFriend(response.data.hiddenFriend)
       setHiddenFriendRequestProcess('discovered')
     } catch (error) {
+      console.log(error)
       setHiddenFriendRequestProcess('error')
     }
   }
@@ -141,8 +145,3 @@ function UserIntectactionPart() {
 }
 
 export default UserIntectactionPart
-
-function discoverHiddenFriend(token) {
-  throw new Error('Function not implemented.')
-}
-
